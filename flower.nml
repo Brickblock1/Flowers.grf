@@ -1,0 +1,113 @@
+grf {
+	grfid: "BBFL";
+	name: string(NAME);
+	desc: string(DESC);
+	url: string(URL);
+	version: 1;
+	min_compatible_version: 1;
+	param {
+		param_grid {
+			type:	   bool;
+			def_value: 0;
+			bit: 2;
+			name: string(DO_GRID);
+		}
+		param_alpine {
+			type:	   bool;
+			def_value: 0;
+			name: string(DO_ALPINE);
+		}
+	}	
+}
+grid = param_grid;
+alpine = param_alpine;
+//grid = (param["\4F\47\2B\34", 0] == 0); //does not work
+opengfx_check = (grf_current_status("\FFOT\01") == 1);
+
+loop = 1;
+
+while (loop == 1) {
+	loop = 0;
+}
+while (loop == 0) {
+	loop = 1;
+}
+
+if (opengfx_check == 1) {
+	if (climate == CLIMATE_ARCTIC) {
+		if (grid == 0) {
+			if (alpine == 1) {
+				replace flowers_plus_temp_alt_1(4000, "gfx/flower+.png") {
+					[1, 1, 64, 31, -31, 0]
+				}
+				replace flowers_plus_temp_alt_2(4019, "gfx/flower+.png") {
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0, "gfx/mushroom+.png"]
+					[1, 1, 64, 31, -31, 0]
+				}
+			} else {
+				replace flowers_plus_arct1(4000, "gfx/flowerartic+.png") {
+					[1, 1, 64, 31, -31, 0]
+				}
+				replace flowers_plus_arct2(4019, "gfx/flowerartic+.png") {
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0, "gfx/mushroomartic+.png"]
+					[1, 1, 64, 31, -31, 0]
+				}
+			}
+		} else {
+			if (alpine == 1) {
+				replace flowers_temp_alt_1(4000, "gfx/flower.png") {
+					[1, 1, 64, 31, -31, 0]		
+				}
+				replace flowers_temp_alt_2(4019, "gfx/flower.png") {
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0]
+				}
+			} else {
+				replace flowers_arct1(4000, "gfx/flowerartic.png") {
+					[1, 1, 64, 31, -31, 0]
+				}
+				replace flowers_arct2(4019, "gfx/flowerartic.png") {
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0]
+					[1, 1, 64, 31, -31, 0, "gfx/mushroomartic.png"]
+					[1, 1, 64, 31, -31, 0]
+				}
+			}
+		}
+	}	
+	else if (climate == CLIMATE_TROPICAL) {
+		error (NOTICE, string(Tropical));
+		}
+	else if (climate == CLIMATE_TOYLAND) {
+	 error (NOTICE, string(Toyland));
+	} 
+	else {
+		if (grid == 0) {
+			replace flowers_temp1(4000, "gfx/flower+.png") {
+				[1, 1, 64, 31, -31, 0]
+			}
+			replace flowers_temp2(4019, "gfx/flower+.png") {
+				[1, 1, 64, 31, -31, 0]
+				[1, 1, 64, 31, -31, 0]
+				[1, 1, 64, 31, -31, 0, "gfx/mushroom+.png"]
+				[1, 1, 64, 31, -31, 0]
+			}
+		} else {
+			replace flowers_plus_temp1(4000, "gfx/flower.png") {
+				[1, 1, 64, 31, -31, 0]
+			}
+			replace flowers_plus_temp2(4019, "gfx/flower.png") {
+				[1, 1, 64, 31, -31, 0]
+				[1, 1, 64, 31, -31, 0]
+				[1, 1, 64, 31, -31, 0, "gfx/mushroom.png"]
+				[1, 1, 64, 31, -31, 0]
+			}
+		}
+	}
+}

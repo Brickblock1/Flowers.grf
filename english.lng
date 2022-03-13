@@ -1,0 +1,9 @@
+##grflangid 1
+NAME                                                   :Flower {TRAIN}
+DESC                                                   :Grf that replaces rough terrain with flowers and mushrooms. {COPYRIGHT}Brickblock1 licence: GPLv2 {}Ground tiles from ogfx and ogfx+landscape respectivly.
+URL													   :https://github.com/Brickblock1/Flowers.grf
+Toyland												   :Toyland = Not realistic!
+Tropical											   :Not included yet!
+DO_GRID												   :Show grid lines
+DO_ALPINE											   :Use temperate grass in artic climate
+DO_MUSHROOM											   :Use moshrooms

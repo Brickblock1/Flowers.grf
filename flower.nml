@@ -21,17 +21,7 @@ grf {
 }
 grid = param_grid;
 alpine = param_alpine;
-//grid = (param["\4F\47\2B\34", 0] == 0); //does not work
 opengfx_check = (grf_current_status("\FFOT\01") == 1);
-
-loop = 1;
-
-while (loop == 1) {
-	loop = 0;
-}
-while (loop == 0) {
-	loop = 1;
-}
 
 if (opengfx_check == 1) {
 	if (climate == CLIMATE_ARCTIC) {
